@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Patrimonio Natural y Cultural 2025</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://cdn.jsdelivr.net/npm/lucide-static@latest/dist/lucide.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                },
+            },
+        };
+    </script>
+
+    <style>
+        body { background-color: #f8fafc; /* bg-slate-50 */ }
+        .page-content { transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out; }
+        .page-content.hidden { opacity: 0; transform: translateY(10px); position: absolute; pointer-events: none; width: calc(100% - 2rem); }
+        .timeline-item::before { content: ''; position: absolute; left: 11px; top: 28px; bottom: -8px; width: 2px; background-color: #e2e8f0; }
+        .timeline-item:last-child::before { display: none; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .fade-in { animation: fadeIn 0.8s ease-out forwards; }
+        .hero-bg { background-size: cover; background-position: center; position: relative; }
+        .hero-bg::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.1)); border-radius: 1rem; }
+        .hero-content { position: relative; z-index: 10; }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <div class="container mx-auto p-4 md:p-8 max-w-6xl">
+        <header class="text-center mb-10 fade-in">
+            <div class="inline-block bg-indigo-100 text-indigo-700 rounded-full px-4 py-1 text-sm font-semibold mb-4">
+                Eventos y Salidas de Campo 2025
+            </div>
+            <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">Patrimonio Natural y Cultural</h1>
+            <p class="text-slate-500 mt-3 text-lg max-w-2xl mx-auto">Explora el cronograma detallado de nuestras próximas actividades, itinerarios y proceso de inscripción.</p>
+        </header>
+
+        <!-- NAV -->
+        <nav class="flex justify-center mb-8 fade-in" style="animation-delay: 0.2s;">
+            <div class="flex flex-wrap justify-center border-b border-slate-200">
+                <button data-target="calendario" class="nav-tab active-tab flex items-center px-4 py-3 text-sm md:text-base font-semibold text-indigo-600 border-b-2 border-indigo-600 focus:outline-none">
+                    <i data-lucide="calendar-days" class="h-5 w-5 mr-2"></i> Calendario
+                </button>
+                <button data-target="lima-arequipa" class="nav-tab inactive-tab flex items-center px-4 py-3 text-sm md:text-base font-medium text-slate-500 border-b-2 border-transparent hover:text-indigo-600 hover:border-indigo-300 focus:outline-none transition-colors duration-300">
+                    <i data-lucide="plane" class="h-5 w-5 mr-2"></i> Lima - Arequipa
+                </button>
+                <button data-target="huanchaco-moche" class="nav-tab inactive-tab flex items-center px-4 py-3 text-sm md:text-base font-medium text-slate-500 border-b-2 border-transparent hover:text-indigo-600 hover:border-indigo-300 focus:outline-none transition-colors duration-300">
+                    <i data-lucide="sailboat" class="h-5 w-5 mr-2"></i> Huanchaco - Moche
+                </button>
+                <button data-target="evento-comunitario" class="nav-tab inactive-tab flex items-center px-4 py-3 text-sm md:text-base font-medium text-slate-500 border-b-2 border-transparent hover:text-indigo-600 hover:border-indigo-300 focus:outline-none transition-colors duration-300">
+                    <i data-lucide="users" class="h-5 w-5 mr-2"></i> Evento Comunitario
+                </button>
+                <button data-target="pagos" class="nav-tab inactive-tab flex items-center px-4 py-3 text-sm md:text-base font-medium text-slate-500 border-b-2 border-transparent hover:text-indigo-600 hover:border-indigo-300 focus:outline-none transition-colors duration-300">
+                    <i data-lucide="credit-card" class="h-5 w-5 mr-2"></i> Proceso de Pago
+                </button>
+            </div>
+        </nav>
+
+        <main class="relative min-h-[600px]">
+            <!-- CALENDARIO -->
+            <div id="calendario" class="page-content fade-in" style="animation-delay: 0.4s;">
+                <div class="bg-white p-6 md:p-8 rounded-2xl shadow-lg border border-slate-200">
+                    <h2 class="text-3xl font-bold mb-6 text-slate-800">Línea de Tiempo de Actividades 2025</h2>
+                    <div class="relative">
+                        <ul>
+                            <li class="timeline-item relative pl-10 pb-8">
+                                <div class="absolute left-0 top-0 h-6 w-6 rounded-full bg-indigo-500 flex items-center justify-center ring-8 ring-white"><i data-lucide="dollar-sign" class="h-4 w-4 text-white"></i></div>
+                                <p class="text-slate-500 mb-1 text-sm font-medium">Hasta el 29 de Agosto</p>
+                                <h3 class="font-semibold text-slate-900 text-lg">Pago 1 (Nacional): 100 USD</h3>
+                                <p class="text-sm text-slate-600">Primer abono para la salida a Lima - Arequipa.</p>
+                            </li>
+                            <li class="timeline-item relative pl-10 pb-8">
+                                <div class="absolute left-0 top-0 h-6 w-6 rounded-full bg-emerald-500 flex items-center justify-center ring-8 ring-white"><i data-lucide="dollar-sign" class="h-4 w-4 text-white"></i></div>
+                                <p class="text-slate-500 mb-1 text-sm font-medium">10 de Septiembre</p>
+                                <h3 class="font-semibold text-slate-900 text-lg">Pago Único (Local): 125 Soles</h3>
+                                <p class="text-sm text-slate-600">Abono para la salida a Huanchaco - Moche.</p>
+                            </li>
+                            <li class="timeline-item relative pl-10 pb-8">
+                                <div class="absolute left-0 top-0 h-6 w-6 rounded-full bg-cyan-500 flex items-center justify-center ring-8 ring-white"><i data-lucide="sailboat" class="h-4 w-4 text-white"></i></div>
+                                <p class="text-slate-500 mb-1 text-sm font-medium">18 de Septiembre</p>
+                                <h3 class="font-semibold text-cyan-700 text-lg">¡Día de la Salida Local!</h3>
+                                <p class="text-sm text-slate-600">Comienza la aventura a Huanchaco - Moche.</p>
+                            </li>
+                            <li class="timeline-item relative pl-10 pb-8">
+                                <div class="absolute left-0 top-0 h-6 w-6 rounded-full bg-indigo-500 flex items-center justify-center ring-8 ring-white"><i data-lucide="dollar-sign" class="h-4 w-4 text-white"></i></div>
+                                <p class="text-slate-500 mb-1 text-sm font-medium">Hasta el 30 de Septiembre</p>
+                                <h3 class="font-semibold text-slate-900 text-lg">Pago 2 (Nacional): 200 USD</h3>
+                                <p class="text-sm text-slate-600">Segundo abono para la salida a Lima - Arequipa.</p>
+                            </li>
+                            <li class="timeline-item relative pl-10 pb-8">
+                                <div class="absolute left-0 top-0 h-6 w-6 rounded-full bg-indigo-500 flex items-center justify-center ring-8 ring-white"><i data-lucide="dollar-sign" class="h-4 w-4 text-white"></i></div>
+                                <p class="text-slate-500 mb-1 text-sm font-medium">Hasta el 25 de Octubre</p>
+                                <h3 class="font-semibold text-slate-900 text-lg">Pago Final (Nacional): 195 USD</h3>
+                                <p class="text-sm text-slate-600">Último abono para la salida a Lima - Arequipa.</p>
+                            </li>
+                            <li class="timeline-item relative pl-10 pb-8">
+                                <div class="absolute left-0 top-0 h-6 w-6 rounded-full bg-red-500 flex items-center justify-center ring-8 ring-white"><i data-lucide="plane" class="h-4 w-4 text-white"></i></div>
+                                <p class="text-slate-500 mb-1 text-sm font-medium">30 de Octubre</p>
+                                <h3 class="font-semibold text-red-700 text-lg">¡Día de la Salida Nacional!</h3>
+                                <p class="text-sm text-slate-600">Comienza nuestra aventura a Lima - Arequipa.</p>
+                            </li>
+                            <li class="timeline-item relative pl-10">
+                                <div class="absolute left-0 top-0 h-6 w-6 rounded-full bg-amber-500 flex items-center justify-center ring-8 ring-white"><i data-lucide="gift" class="h-4 w-4 text-white"></i></div>
+                                <p class="text-slate-500 mb-1 text-sm font-medium">4 de Noviembre</p>
+                                <h3 class="font-semibold text-slate-900 text-lg">Evento Especial Comunitario</h3>
+                                <p class="text-sm text-slate-600">Recorrido para l@s niñ@s de I.E.E - Nuestra Sra. Monserrate.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LIMA - AREQUIPA -->
+            <div id="lima-arequipa" class="page-content hidden">
+                <div class="space-y-8">
+                    <div class="hero-bg rounded-2xl p-8 md:p-12 text-white flex items-end h-64" style="background-image: url('https://i.postimg.cc/mgPvLyT3/ggsdgd.jpg');">
+                        <div class="hero-content">
+                            <span class="inline-block bg-white/20 backdrop-blur-sm rounded-full px-3 py-1 text-sm mb-2">Viaje Nacional</span>
+                            <h2 class="text-4xl font-extrabold tracking-tight">Lima - Arequipa Fantástica</h2>
+                            <p class="text-lg mt-1 opacity-90">3 Días / 2 Noches de aventura y cultura.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 md:p-8 rounded-2xl shadow-lg border border-slate-200">
+                        <!-- Date banner for Lima - Arequipa -->
+                        <div class="mt-4 mb-6 bg-red-50 border-l-4 border-red-500 p-5 rounded-lg text-red-900">
+                            <p class="text-sm font-semibold text-red-800">FECHA Y HORA</p>
+                            <p class="text-2xl font-bold">30 de Octubre, 2025</p>
+                            <p class="text-slate-600 mt-1">Salida desde Trujillo a las 8:30 PM (el día anterior) para comenzar la aventura.</p>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-6 text-slate-800">Itinerario Detallado</h3>
+                        <div class="space-y-6">
+                            <div>
+                                <h4 class="font-bold text-lg text-indigo-700">Día 1: De Trujillo a Arequipa y Noche Histórica</h4>
+                                <ul class="mt-2 space-y-2 text-slate-600 list-disc list-inside">
+                                    <li><span class="font-semibold">8:30 PM (Día anterior):</span> Salida en bus desde Trujillo hacia Lima.</li>
+                                    <li><span class="font-semibold">7:30 AM:</span> Desayuno de bienvenida en Lima.</li>
+                                    <li><span class="font-semibold">9:30 AM:</span> Visita a la feria gastronómica "Perú Mucho Gusto".</li>
+                                    <li><span class="font-semibold">2:00 PM:</span> Traslado al aeropuerto para el vuelo Lima - Arequipa.</li>
+                                    <li><span class="font-semibold">6:00 PM:</span> Llegada a Arequipa, recojo y traslado al hotel.</li>
+                                    <li><span class="font-semibold">7:00 PM:</span> Cena en Arequipa.</li>
+                                    <li><span class="font-semibold">9:00 PM:</span> Visita nocturna al Centro Histórico y a la tradicional tienda de chocolates "La Ibérica".</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg text-indigo-700">Día 2: Cañón del Colca y Vuelo del Cóndor</h4>
+                                <ul class="mt-2 space-y-2 text-slate-600 list-disc list-inside">
+                                    <li><span class="font-semibold">3:30 AM:</span> Partida hacia Chivay para explorar el Cañón del Colca.</li>
+                                    <li>Visita al Mirador de la Cruz del Cóndor para el avistamiento del majestuoso cóndor.</li>
+                                    <li>Visita a la Municipalidad del Colca para conocer su gestión turística.</li>
+                                    <li>Baño relajante en las aguas termales de la zona (35-38°C).</li>
+                                    <li><span class="font-semibold">12:30 PM:</span> Almuerzo buffet en Chivay.</li>
+                                    <li>Paradas en el Mirador de los Volcanes (4800 msnm), Bofedales de Toccra y la Reserva Nacional de Salinas y Aguada Blanca.</li>
+                                    <li><span class="font-semibold">8:00 PM:</span> Cena con show de danzas típicas en Arequipa.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg text-indigo-700">Día 3: Cataratas, Bosques de Piedra y Retorno</h4>
+                                <ul class="mt-2 space-y-2 text-slate-600 list-disc list-inside">
+                                    <li><span class="font-semibold">7:30 AM:</span> Inicio del tour hacia la Catarata de Pillones, pasando por Pampa de Arrieros y Pampa Cañahuas.</li>
+                                    <li>Descenso a pie para apreciar las impresionantes caídas de agua.</li>
+                                    <li>Visita al Bosque de Piedras de Puruña y sus extrañas formaciones rocosas.</li>
+                                    <li>Almuerzo en Patahuasi.</li>
+                                    <li><span class="font-semibold">4:30 PM:</span> Llegada de regreso a la ciudad de Arequipa.</li>
+                                    <li><span class="font-semibold">6:30 PM:</span> Traslado al aeropuerto para el vuelo de regreso Arequipa - Lima y posterior bus a Trujillo.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="bg-white p-6 rounded-2xl shadow-lg border border-slate-200">
+                            <h3 class="text-xl font-bold mb-4 text-slate-800">Nuestro Servicio Incluye</h3>
+                            <ul class="space-y-2 text-slate-600">
+                                <li class="flex items-start"><i data-lucide="check-circle-2" class="h-5 w-5 mr-2 mt-0.5 text-green-500 flex-shrink-0"></i>Bus Trujillo - Lima (ida y vuelta).</li>
+                                <li class="flex items-start"><i data-lucide="check-circle-2" class="h-5 w-5 mr-2 mt-0.5 text-green-500 flex-shrink-0"></i>Ticket aéreo Lima - Arequipa (ida y vuelta, tarifa básica).</li>
+                                <li class="flex items-start"><i data-lucide="check-circle-2" class="h-5 w-5 mr-2 mt-0.5 text-green-500 flex-shrink-0"></i>Traslados aeropuerto-hotel-aeropuerto.</li>
+                                <li class="flex items-start"><i data-lucide="check-circle-2" class="h-5 w-5 mr-2 mt-0.5 text-green-500 flex-shrink-0"></i>2 noches de alojamiento en hotel ***.</li>
+                                <li class="flex items-start"><i data-lucide="check-circle-2" class="h-5 w-5 mr-2 mt-0.5 text-green-500 flex-shrink-0"></i>Alimentación completa: 3 desayunos, 3 almuerzos, 3 cenas.</li>
+                                <li class="flex items-start"><i data-lucide="check-circle-2" class="h-5 w-5 mr-2 mt-0.5 text-green-500 flex-shrink-0"></i>Tours en buses turísticos privados para el grupo.</li>
+                                <li class="flex items-start"><i data-lucide="check-circle-2" class="h-5 w-5 mr-2 mt-0.5 text-green-500 flex-shrink-0"></i>Guía oficial de turismo y boletos de ingreso.</li>
+                                <li class="flex items-start"><i data-lucide="check-circle-2" class="h-5 w-5 mr-2 mt-0.5 text-green-500 flex-shrink-0"></i>Asistencia médica y botiquín de primeros auxilios.</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-6 rounded-2xl shadow-lg border border-slate-200">
+                            <h3 class="text-xl font-bold mb-4 text-slate-800">No Incluye</h3>
+                            <ul class="space-y-2 text-slate-600">
+                                <li class="flex items-start"><i data-lucide="x-circle" class="h-5 w-5 mr-2 mt-0.5 text-red-500 flex-shrink-0"></i>Uso anticipado ni uso extendido de habitaciones.</li>
+                                <li class="flex items-start"><i data-lucide="x-circle" class="h-5 w-5 mr-2 mt-0.5 text-red-500 flex-shrink-0"></i>Equipaje de bodega (costo adicional).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HUANCHACO - MOCHE -->
+            <div id="huanchaco-moche" class="page-content hidden">
+                <div class="space-y-8">
+                    <div class="hero-bg rounded-2xl p-8 md:p-12 text-white flex items-end h-64" style="background-image: url('https://i.postimg.cc/02yg3q3B/ggfhg.jpg');">
+                        <div class="hero-content">
+                            <span class="inline-block bg-white/20 backdrop-blur-sm rounded-full px-3 py-1 text-sm mb-2">Salida Local</span>
+                            <h2 class="text-4xl font-extrabold tracking-tight">Huanchaco - Moche y sus Encantos</h2>
+                            <p class="text-lg mt-1 opacity-90">Un Full Day de inmersión en la cultura ancestral.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 md:p-8 rounded-2xl shadow-lg border border-slate-200">
+                        <div class="mt-4 mb-6 bg-emerald-50 border-l-4 border-emerald-500 p-5 rounded-lg text-emerald-900">
+                            <p class="text-sm font-semibold text-emerald-800">FECHA Y HORA</p>
+                            <p class="text-2xl font-bold">18 de Septiembre, 2025</p>
+                            <p class="text-slate-600 mt-1">Punto de encuentro en UPN a las 3:00 PM. Salida 3:30 PM.</p>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-6 text-slate-800">Recorrido Detallado</h3>
+                        <ul class="space-y-3 pl-5 text-slate-600">
+                            <li class="relative pl-4"><span class="absolute left-[-10px] top-1.5 h-2 w-2 rounded-full bg-emerald-400"></span><strong>Totorales y Caballitos de Totora:</strong> Observaremos el cultivo de la totora, el armado de las ancestrales embarcaciones y disfrutaremos de un emocionante paseo (se recomienda llevar ropa de cambio).</li>
+                            <li class="relative pl-4"><span class="absolute left-[-10px] top-1.5 h-2 w-2 rounded-full bg-emerald-400"></span><strong>Degustación Huanchaquera:</strong> Probaremos el delicioso cangrejo reventado en Quibisich.</li>
+                            <li class="relative pl-4"><span class="absolute left-[-10px] top-1.5 h-2 w-2 rounded-full bg-emerald-400"></span><strong>Cultura y Gastronomía Moche:</strong> Visitaremos la Casa Real de los Moches, la Casa del Ají Mochero y el taller "Manos Mocheras".</li>
+                            <li class="relative pl-4"><span class="absolute left-[-10px] top-1.5 h-2 w-2 rounded-full bg-emerald-400"></span><strong>Danzas y Sabores:</strong> Participaremos en la Danza de la Serpiente y degustaremos la tradicional Sopa Teóloga.</li>
+                            <li class="relative pl-4"><span class="absolute left-[-10px] top-1.5 h-2 w-2 rounded-full bg-emerald-400"></span><strong>Noche Ancestral:</strong> Concluiremos en el Taller de Cerámica Cerro Blanco con una escenificación de una boda mochica, pago a la tierra, fogata y fiesta.</li>
+                            <li class="relative pl-4"><span class="absolute left-[-10px] top-1.5 h-2 w-2 rounded-full bg-emerald-400"></span><strong>11:30 PM:</strong> Retorno a UPN.</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white p-6 md:p-8 rounded-2xl shadow-lg border border-slate-200">
+                        <h3 class="text-xl font-bold mb-4 text-slate-800">Nuestro Servicio Incluye</h3>
+                        <ul class="space-y-2 text-slate-600 grid md:grid-cols-2 gap-x-6 gap-y-2">
+                            <li class="flex items-start"><i data-lucide="check-circle-2" class="h-5 w-5 mr-2 mt-0.5 text-green-500 flex-shrink-0"></i>Transporte turístico full equipado.</li>
+                            <li class="flex items-start"><i data-lucide="check-circle-2" class="h-5 w-5 mr-2 mt-0.5 text-green-500 flex-shrink-0"></i>Guía oficial de turismo.</li>
+                            <li class="flex items-start"><i data-lucide="check-circle-2" class="h-5 w-5 mr-2 mt-0.5 text-green-500 flex-shrink-0"></i>Entradas según programa.</li>
+                            <li class="flex items-start"><i data-lucide="check-circle-2" class="h-5 w-5 mr-2 mt-0.5 text-green-500 flex-shrink-0"></i>Actividades culturales y degustaciones.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EVENTO COMUNITARIO -->
+            <div id="evento-comunitario" class="page-content hidden">
+                <div class="space-y-8">
+                    <div class="hero-bg rounded-2xl p-8 md:p-12 text-white flex items-end h-64" style="background-image: url('https://i.postimg.cc/85z1D517/community-event-hero.jpg');">
+                        <div class="hero-content">
+                            <span class="inline-block bg-white/20 backdrop-blur-sm rounded-full px-3 py-1 text-sm mb-2">Proyecto Social</span>
+                            <h2 class="text-4xl font-extrabold tracking-tight">Recorrido con I.E.E Nuestra Sra. Monserrate</h2>
+                            <p class="text-lg mt-1 opacity-90">Una jornada de exploración cultural y aprendizaje para los más jóvenes.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-6 md:p-8 rounded-2xl shadow-lg border border-slate-200 space-y-6">
+                        <!-- Date banner for Community Event -->
+                        <div class="mt-4 mb-6 bg-amber-50 border-l-4 border-amber-500 p-5 rounded-lg text-amber-900">
+                            <p class="text-sm font-semibold text-amber-800">FECHA Y HORA</p>
+                            <p class="text-2xl font-bold">4 de Noviembre, 2025</p>
+                            <p class="text-slate-600 mt-1">Un día especial dedicado a los alumnos de 2do grado.</p>
+                        </div>
+                        
+                        <h2 class="text-2xl font-bold text-slate-800 mb-2">Detalles del Evento</h2>
+                        <p class="text-slate-600"><strong>Colegio:</strong> I.E.E Nuestra Sra. Monserrate</p>
+                        <p class="text-slate-600"><strong>Cantidad de alumnos:</strong> 26 estudiantes (2do grado)</p>
+
+                        <div>
+                            <h3 class="text-xl font-semibold text-indigo-700 mb-4">Responsabilidades por equipo</h3>
+
+                            <!-- Grid de equipos -->
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <!-- Equipo 1 -->
+                                <div class="flex items-start bg-indigo-50 p-5 rounded-xl border border-indigo-100">
+                                    <i data-lucide="utensils" class="h-6 w-6 text-indigo-600 mr-3 flex-shrink-0"></i>
+                                    <div>
+                                        <h4 class="font-bold text-slate-800">Equipo 1</h4>
+                                        <p class="text-slate-600 text-sm">Refrigerio y recorrido de Huaca Arco Iris</p>
+                                    </div>
+                                </div>
+
+                                <!-- Equipo 2 -->
+                                <div class="flex items-start bg-emerald-50 p-5 rounded-xl border border-emerald-100">
+                                    <i data-lucide="gift" class="h-6 w-6 text-emerald-600 mr-3 flex-shrink-0"></i>
+                                    <div>
+                                        <h4 class="font-bold text-slate-800">Equipo 2</h4>
+                                        <p class="text-slate-600 text-sm">Recuerdos y recorrido con apoyo del equipo 3 de Palacio Nik-An</p>
+                                    </div>
+                                </div>
+
+                                <!-- Equipo 3 -->
+                                <div class="flex items-start bg-cyan-50 p-5 rounded-xl border border-cyan-100">
+                                    <i data-lucide="ticket" class="h-6 w-6 text-cyan-600 mr-3 flex-shrink-0"></i>
+                                    <div>
+                                        <h4 class="font-bold text-slate-800">Equipo 3</h4>
+                                        <p class="text-slate-600 text-sm">Entradas todos los recorridos y recorrido con apoyo con equipo 2 de Palacio Nik-An</p>
+                                    </div>
+                                </div>
+
+                                <!-- Equipo 4 -->
+                                <div class="flex items-start bg-amber-50 p-5 rounded-xl border border-amber-100">
+                                    <i data-lucide="bus" class="h-6 w-6 text-amber-600 mr-3 flex-shrink-0"></i>
+                                    <div>
+                                        <h4 class="font-bold text-slate-800">Equipo 4</h4>
+                                        <p class="text-slate-600 text-sm">Movilidad y recorrido de Huaca Esmeralda y Museo</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PAGOS (placeholder) -->
+            <div id="pagos" class="page-content hidden">
+                <div class="bg-white p-6 md:p-8 rounded-2xl shadow-lg border border-slate-200 space-y-6">
+                    <h2 class="text-2xl font-bold text-slate-800">Proceso de Pago</h2>
+                    <ol class="list-decimal list-inside text-slate-700 space-y-2">
+                        <li>Realiza el <span class="font-semibold">Pago 1 (100 USD)</span> hasta el 7 de agosto.</li>
+                        <li>Para la salida local, realiza el <span class="font-semibold">pago de 125 soles</span> el 10 de septiembre.</li>
+                        <li>Completa el <span class="font-semibold">Pago 2 (200 USD)</span> hasta el 30 de septiembre.</li>
+                        <li>Realiza el <span class="font-semibold">Pago final (195 USD)</span> hasta el 25 de octubre.</li>
+                    </ol>
+                    <div class="bg-indigo-50 border border-indigo-200 p-4 rounded-xl">
+                        <p class="text-indigo-800 text-sm">Sugerencia: Pagar por los medios indicados y proporcionar la información indicada en los documentos.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Tabs logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (window.lucide && typeof lucide.createIcons === 'function') {
+                lucide.createIcons();
+            }
+
+            const tabs = Array.from(document.querySelectorAll('.nav-tab'));
+            const pages = Array.from(document.querySelectorAll('.page-content'));
+
+            const ACTIVE_CLASSES = ['text-indigo-600', 'border-indigo-600', 'font-semibold'];
+            const INACTIVE_CLASSES = ['text-slate-500', 'border-transparent', 'font-medium'];
+
+            function setActiveTab(targetId, pushHash = true) {
+                // Show/hide pages
+                pages.forEach(p => {
+                    if (p.id === targetId) {
+                        p.classList.remove('hidden');
+                        p.classList.add('fade-in');
+                    } else {
+                        p.classList.add('hidden');
+                        p.classList.remove('fade-in');
+                    }
+                });
+
+                // Update tab styles
+                tabs.forEach(btn => {
+                    const isActive = btn.dataset.target === targetId;
+                    btn.classList.toggle('active-tab', isActive);
+                    btn.classList.toggle('inactive-tab', !isActive);
+                    if (isActive) {
+                        btn.classList.add(...ACTIVE_CLASSES);
+                        btn.classList.remove(...INACTIVE_CLASSES);
+                    } else {
+                        btn.classList.add(...INACTIVE_CLASSES);
+                        btn.classList.remove(...ACTIVE_CLASSES);
+                    }
+                    btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+                });
+
+                // Update URL hash (deep-link)
+                if (pushHash) {
+                    try { history.replaceState(null, '', '#' + targetId); } catch (e) {}
+                }
+
+                // (Re)render icons in case new nodes were added
+                if (window.lucide && typeof lucide.createIcons === 'function') {
+                    lucide.createIcons();
+                }
+            }
+
+            // Bind clicks
+            tabs.forEach(btn => {
+                btn.addEventListener('click', () => setActiveTab(btn.dataset.target));
+            });
+
+            // Initial tab from hash or default first tab
+            const hash = (location.hash || '').replace('#', '');
+            const defaultId = tabs[0] ? tabs[0].dataset.target : null;
+            const initialId = hash && document.getElementById(hash) ? hash : defaultId;
+            if (initialId) setActiveTab(initialId, false);
+        });
+    </script>
+</body>
+</html>
